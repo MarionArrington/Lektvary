@@ -1,14 +1,28 @@
 <style>
+    /* ZÁKLADNÉ NASTAVENIE STRÁNKY */
+    body {
+        background-color: #23120c;
+        font-size: 14px;
+        color: #d8b37e;
+        font-family: "Palatino Linotype", serif;
+    }
+
+    /* Pre istotu zadefinujeme farbu a veľkosť aj pre odseky a všeobecný text, aby sa prejavila všade */
+    p, span, div {
+        color: #d8b37e;
+        font-size: 14px;
+    }
+
     /* ŠTÝL PRE CITÁT - MENEJ VÝRAZNÝ */
     .snape-quote-box {
         margin: 25px auto;
         padding: 20px 25px;
         border-left: 3px solid #d27af5; 
-        background: rgba(210, 122, 245, 0.03); 
+        background: rgba(210, 122, 245, 0.05); 
         border-radius: 2px;
         position: relative;
         max-width: 80%; 
-        box-shadow: 1px 2px 8px rgba(0,0,0,0.04);
+        box-shadow: 1px 2px 8px rgba(0,0,0,0.2);
     }
     .snape-quote-box::before {
         content: "“";
@@ -18,13 +32,13 @@
         font-size: 35px;
         color: #d27af5;
         font-family: "Georgia", serif;
-        background: #ffffff; 
+        background: #23120c; /* Prispôsobené novému pozadiu */
         padding: 0 8px;
         line-height: 1;
     }
     .snape-quote-content {
         font-style: italic;
-        color: #7a5a80;
+        color: #d8b37e;
         font-weight: 400;
         line-height: 1.5;
         text-align: justify;
@@ -71,8 +85,14 @@
     .c9 img { top: -200%; left: -200%; }
     
     #tool-text {
-        text-align: center; font-family: "Palatino Linotype", serif; color: #000000; font-size: 0.9em;
-        font-style: italic; min-height: 40px; margin: 15px auto; max-width: 400px;
+        text-align: center; 
+        font-family: "Palatino Linotype", serif; 
+        color: #d8b37e; 
+        font-size: 14px;
+        font-style: italic; 
+        min-height: 40px; 
+        margin: 15px auto; 
+        max-width: 400px;
     }
 </style>
 
@@ -138,6 +158,9 @@
 </p>
  
 <p style="text-align: justify">A ja môžem s jeho slovami iba súhlasiť. Ak by študenti venovali viac času štúdiu lektvarov, zistili by, že lektvarológia je skutočné umenie. Cestu k nemu si však nedokáže nájsť každý, pretože lektvary nie sú pre netrpezlivých. Ich varenie si vyžaduje čas, trpezlivosť a veľkú presnosť. </p> 
+
+<!-- PODPIS NA SPODKU STRÁNKY -->
+<p style="text-align: right; clear: both;"><img src="https://i.ibb.co/tPtxVkk/pppp.png" width="13%"></p>
  
 <script>
     function showT(el) { document.getElementById('tool-text').innerText = el.getAttribute('data-desc'); }
