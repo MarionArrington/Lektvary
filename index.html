@@ -12,12 +12,12 @@
         font-size: 14px;
     }
 
-    /* ŠTÝL PRE CITÁT - MENEJ VÝRAZNÝ */
+    /* ŠTÝL PRE CITÁT - JEDNOTNÉ POZADIE S VŠETKÝM */
     .snape-quote-box {
-        margin: 25px auto 5px auto;
-        padding: 20px 25px;
+        margin: 25px auto;
+        padding: 20px 25px 15px 25px;
         border-left: 3px solid #d27af5; 
-        background: rgba(210, 122, 245, 0.03); 
+        background: #23120c; /* Úplne zjednotené s pozadím stránky */
         border-radius: 2px;
         position: relative;
         max-width: 80%; 
@@ -31,7 +31,7 @@
         font-size: 35px;
         color: #d27af5;
         font-family: "Georgia", serif;
-        background: #23120c; /* Zjednotené pozadie pre úvodzovku */
+        background: #23120c; /* Pozadie úvodzovky zjednotené */
         padding: 0 8px;
         line-height: 1;
     }
@@ -41,20 +41,17 @@
         font-weight: 400;
         line-height: 1.5;
         text-align: justify;
-        margin: 0;
+        margin: 0 0 10px 0;
         font-size: 0.95em;
         font-family: "Palatino Linotype", serif;
     }
-
-    /* PODPIS POD CITÁTOM */
     .snape-signature {
-        max-width: 80%;
-        margin: 0 auto 25px auto;
         text-align: right;
         color: #d27af5;
         font-style: italic;
         font-family: "Palatino Linotype", serif;
         font-size: 0.9em;
+        margin: 0;
     }
 
     /* MRIEŽKA - 4 STĹPCE */
@@ -110,7 +107,7 @@
 <center><img src="https://i.ibb.co/KKydFXT/Lektvary-n-pis.png" width="53%"></center> 
 <br>
  
-<p style="text-align: justify">Lektvary, v latinčine označované ako <font color="#d27af5">potio,</font> sú kúzelné zmesi pripravované v kotlíkoch rôznych veľkostí a materiálov a majú <font color="#d27af5">nespočetné množstvo odlišných účinkov a vlastností</font> na používateľov. Ich rozmanitosť nespočíva iba v účinkoch, ale aj v zložitosti prípravy (jednoduchšie, <b>základné lektvary</b> – <i>Lektvar na liečenie vredov</i>, <b>pokročilejšie lektvary</b> - <i>Mnoholičný lektvar</i>) a spôsobe užitia. Mnoho lektvarov je určených na <b>vnútorné použitie</b>, teda priamu konzumáciu (napr. <i>Životabudič</i>, <i>Veritasérum</i>, <i>Felix Felicis</i>), ale existujú aj lektvary s <b>vonkajším použitím</b>, ktoré nadobúdajú účinnosť aplikáciou na konkrétnu časť tela (napr. <i>Anti-akné</i>, <i>Odstraňovač modrín</i>, <i>Lektvar na čistenie rán</i>).</p>    
+<p style="text-align: justify">Lektvary, v latinčine označované ako <font color="#d27af5">potio,</font> sú kúzelné zmesi pripravované v kotlíkoch rôznych veľkostí a materiálov a majú <font color="#d27af5">nespočetné množstvo odlišných účinkov a vlastností</font> na používateľov. Ich rozmanitosť nespočíva iba v účinkoch, ale aj v zložitosti prípravy (jednoduchšie, <b>základné lektvary</b> – <i>Lektvar na liečenie vredov</i>, <b>pokročilejšie lektvary</b> - <i>Mnoholičný lektvar</i>) a spôsobe užitia. Mnoho lektvarov je určených na <b>vnútorné použitie</b>, teda priamu konzumaciju (napr. <i>Životabudič</i>, <i>Veritasérum</i>, <i>Felix Felicis</i>), ale existują aj lektvary s <b>vonkajším použitím</b>, ktoré nadobúdajú účinnosť aplikáciou na konkrétnu časť tela (napr. <i>Anti-akné</i>, <i>Odstraňovač modrín</i>, <i>Lektvar na čistenie rán</i>).</p>    
  
 <br><br>
 <center> 
@@ -153,7 +150,7 @@
     <div></div>
     <div class="tool-box c9" data-desc="TEPLOMER: na kontrolu teploty v kotlíku." onmouseover="showT(this)" onmouseout="hideT()"><img class="sprite" src="https://i.ibb.co/Qjb1vHb4/Gemini-Generated-Image-letd3dletd3dletd-removebg-preview.png"></div>
     
-    <div class="tool-box" data-desc="KAHAN: zdroj tepla pre varenie lektvarov." onmouseover="showT(this)" onmouseout="hideT()"><img class="kahan-img" src="https://i.ibb.co/KxMjLGBj/kahan.jpg"></div>
+    <div class="tool-box" data-desc="KAHAN: zdroj tepla pri varení lektvarov." onmouseover="showT(this)" onmouseout="hideT()"><img class="kahan-img" src="https://i.ibb.co/KxMjLGBj/kahan.jpg"></div>
     <div></div>
 </div>
  
@@ -190,17 +187,12 @@
                     quoteSpan.innerHTML = fontTag.innerHTML;
                     box.appendChild(quoteSpan);
                     
-                    // Vytvorenie podpisu pod citát
                     const sigDiv = document.createElement('div');
                     sigDiv.className = 'snape-signature';
                     sigDiv.innerHTML = 'Severus Snape';
+                    box.appendChild(sigDiv);
                     
-                    // Vloženie boxu a podpisu na miesto pôvodného odseku
-                    const container = document.createElement('div');
-                    container.appendChild(box);
-                    container.appendChild(sigDiv);
-                    
-                    fontTag.parentNode.replaceChild(container, fontTag);
+                    fontTag.parentNode.replaceChild(box, fontTag);
                 }
             }
         });
