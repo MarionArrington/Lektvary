@@ -7,7 +7,6 @@
         font-family: "Palatino Linotype", serif;
     }
 
-    /* Pre istotu zadefinujeme farbu a veľkosť aj pre odseky a všeobecný text, aby sa prejavila všade */
     p, span, div {
         color: #d8b37e;
         font-size: 14px;
@@ -15,10 +14,10 @@
 
     /* ŠTÝL PRE CITÁT - MENEJ VÝRAZNÝ */
     .snape-quote-box {
-        margin: 25px auto;
+        margin: 25px auto 5px auto;
         padding: 20px 25px;
         border-left: 3px solid #d27af5; 
-        background: rgba(210, 122, 245, 0.05); 
+        background: rgba(210, 122, 245, 0.03); 
         border-radius: 2px;
         position: relative;
         max-width: 80%; 
@@ -32,7 +31,7 @@
         font-size: 35px;
         color: #d27af5;
         font-family: "Georgia", serif;
-        background: #23120c; /* Prispôsobené novému pozadiu */
+        background: #23120c; /* Zjednotené pozadie pre úvodzovku */
         padding: 0 8px;
         line-height: 1;
     }
@@ -45,6 +44,17 @@
         margin: 0;
         font-size: 0.95em;
         font-family: "Palatino Linotype", serif;
+    }
+
+    /* PODPIS POD CITÁTOM */
+    .snape-signature {
+        max-width: 80%;
+        margin: 0 auto 25px auto;
+        text-align: right;
+        color: #d27af5;
+        font-style: italic;
+        font-family: "Palatino Linotype", serif;
+        font-size: 0.9em;
     }
 
     /* MRIEŽKA - 4 STĹPCE */
@@ -174,11 +184,23 @@
                 if (fontTag) {
                     const box = document.createElement('div');
                     box.className = 'snape-quote-box';
+                    
                     const quoteSpan = document.createElement('div');
                     quoteSpan.className = 'snape-quote-content';
                     quoteSpan.innerHTML = fontTag.innerHTML;
                     box.appendChild(quoteSpan);
-                    fontTag.parentNode.replaceChild(box, fontTag);
+                    
+                    // Vytvorenie podpisu pod citát
+                    const sigDiv = document.createElement('div');
+                    sigDiv.className = 'snape-signature';
+                    sigDiv.innerHTML = 'Severus Snape';
+                    
+                    // Vloženie boxu a podpisu na miesto pôvodného odseku
+                    const container = document.createElement('div');
+                    container.appendChild(box);
+                    container.appendChild(sigDiv);
+                    
+                    fontTag.parentNode.replaceChild(container, fontTag);
                 }
             }
         });
